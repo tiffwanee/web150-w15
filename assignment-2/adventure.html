@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Choose Your Own Adventure - Movie Edition</title>
+    </head>
+    <body>
+        This space is intentionally left blank.
+        <script>
+    var watchMovie = confirm("Do you want to watch a movie");
+        console.log(watchMovie)
+        if (!watchMovie) {
+            console.log("Oh well.");
+        } else {
+            
+            var movieType = prompt("What type of movie do you want to see?")
+            movieType = movieType.toLowerCase();
+        
+        
+        if (movieType == "comedy") {
+            console.log("Coming to America")
+        }
+        else if (movieType == "horror") {
+            console.log("The Thing")
+        }
+        else if (movieType == "romance") {
+            console.log("Wild at Heart")
+        }
+        else if (movieType == "drama") {
+            console.log("Miller's Crossing")
+        }
+        else if (movieType == "action") {
+            console.log("The Fifth Element")
+        }
+        else if (movieType == "thriller") {
+            console.log("Dead Ringers")
+        }
+        else if (movieType == "fantasy") {
+            console.log("The Princess Bride")
+        }
+        else if (movieType == "documentary") {
+            console.log("Jodorowsky's Dune")
+        }
+        else if (movieType == "sci-fi") {
+            console.log("Stargate")
+        }
+        else if (movieType == "musical") {
+            console.log("Rocky Horror Picture Show")
+        }
+        else {
+            console.log("Big Trouble in Litle China")
+        }
+        
+      var price = prompt("How much money do you want to spend on snacks?");
+     price = Number(price);
+     
+        if (price < 5) {
+            console.log("A box of milk duds will do, I suppose");
+        } else if (price < 10) {
+            console.log("Some popcorn, and maybe even a drink!");
+        } else if (price < 15) {
+            console.log("Popcorn and candy!")
+        } else if (price < 20) {
+            console.log("Treat yourself! Get a combo and enjoy the show.")
+        } else if (price > 20) {
+            console.log("Big spender! Add some nachos and a soft pretzal to that combo.")
+        }
+        
+        }
+        </script>
+        
+    </body>
