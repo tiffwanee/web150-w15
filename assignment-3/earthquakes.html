@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Analyzing Earthquake Date</title>
+    </head>
+    <body>
+        <script
+            src="http://thomaswilburn.net/scc/data/quakes.js"></script>
+        <script>
+            //size of biggest earthquake//
+            var biggestQuake = 0
+            
+            for (var i = 0; i < magnitude.length; i++) {
+                var r = magnitude[i];
+                if (r > biggestQuake) {
+                   biggestQuake = r
+                }
+            }
+            console.log("Biggest earthquake this week:", biggestQuake);
+            
+            //average depth where quake takes place//
+            var totalDepth = 0
+            
+            for (var i = 0; i < depth.length; i++) {
+                totalDepth = totalDepth + depth[i];
+            }
+            
+            console.log("Average depth where a quake takes place:", totalDepth / depth.length);
+            
+            //quakes that are not earthquakes//
+            var notQuakes = []
+            for (var i = 0; i < type.length; i++) {
+                var other = type[i];
+                if (other !== "earthquake") {
+                    notQuakes.push(other)
+                }
+            }
+            
+            console.log("The quakes that are not earthquakes are:", notQuakes);
+            
+        </script>
