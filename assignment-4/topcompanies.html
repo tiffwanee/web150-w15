@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Top Companies</title>
+    </head>
+    <body>
+        <script
+            src="http://thomaswilburn.net/scc/data/companies.js"></script>
+        <script>
+            //What is the smallest company in terms of employee count?
+            var smallest = companies[0];
+            for (var i = 0; i < companies.length; i++) {
+                var item = companies[i];
+                if (smallest.employees > item.employees) {
+                    smallest = item;
+                }
+            }
+            console.log("The smallet company in terms of employees:", smallest.company);
+            
+            //Which companies turned a negative profit?
+            var negProfit = [];
+            for (var i = 0; i < companies.length; i++) {
+                var item = companies[i]
+                if (item.profit < 0) {
+                    negProfit.push(item)
+                }
+            }
+            var companyNames = "";
+            for (var i = 0; i < negProfit.length; i++) {
+                companyNames += negProfit[i].company.trim() + ", ";
+            }
+            console.log("The number of companies with negative profit is:", negProfit.length);
+            console.log("The names of companies that turned a negative profit: " + companyNames);
+        
+            //Average market cap for manufacturing companies
+            var manufacturing = []
+            for (var i = 0; i < companies.length; i++) {
+                if (companies[i].sector == "manufacturing") {
+                    manufacturing.push(companies[i].marketCap);
+                }
+            }
+            var total = 0;
+            for (var i = 0; i < manufacturing.length; i++) {
+                total += manufacturing[i];
+            }
+            console.log("The average market cap of manufacturing companies is: ", total / manufacturing.length);
+        </script>
+    </body>

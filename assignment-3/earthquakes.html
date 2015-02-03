@@ -8,7 +8,7 @@
         <script
             src="http://thomaswilburn.net/scc/data/quakes.js"></script>
         <script>
-            //size of biggest earthquake//
+            //size of biggest earthquake
             var biggestQuake = 0
             
             for (var i = 0; i < magnitude.length; i++) {
@@ -19,7 +19,7 @@
             }
             console.log("Biggest earthquake this week:", biggestQuake);
             
-            //average depth where quake takes place//
+            //average depth where quake takes place
             var totalDepth = 0
             
             for (var i = 0; i < depth.length; i++) {
@@ -28,7 +28,7 @@
             
             console.log("Average depth where a quake takes place:", totalDepth / depth.length);
             
-            //quakes that are not earthquakes//
+            //quakes that are not earthquakes
             var notQuakes = []
             for (var i = 0; i < type.length; i++) {
                 var other = type[i];
