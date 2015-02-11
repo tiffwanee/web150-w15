@@ -77,10 +77,8 @@ continent.html("Australia");
 
 
 //9. Add a class of "stripe" to all odd-numbered list items inside section tags
-$("section li").filter(":odd").addClass("stripe");
-
-/* var stripe = $("section").find("li:odd");
-stripe.addClass("stripe");*/
+var stripe = $("section").find("li:even");
+stripe.addClass("stripe");
 
 //10. Remove the class of "facts" from the <main> element
 var main = $("main");
