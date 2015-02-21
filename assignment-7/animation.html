@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Animation!</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+    <canvas width=640 height=480></canvas>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+      var $canvas = $("canvas");
+      var canvas = $canvas.get(0);
+      var context = canvas.getContext("2d");
+      
+      var drawNeko = function(x,y) {
+        context.fillStyle = "seagreen";
+        context.fillRect(x - 5, y - 5, 10, 10); //x, y, width, height
+      };
+      
+      var cat = {
+        x: 100,
+        y: 100,
+        dx: 2,
+        dy: 2
+      };
+      
+      var pointer = {
+        x:0,
+        y:0
+      };
+      
+      var update = function(animal) {
+        animal.x = animal.x + animal.dx;
+        animal.y = animal.y + animal.dy;
+      }
+      
+      var wander = function (animal) {
+        animal.x = animal.x + animal.dx;
+        if (animal.x > canvas.width || animal.x < 0) {
+          animal.dx = animal.dx * -1;
+        }
+        animal.y = animal.y + animal.dy;
+        if (animal.y > canvas.height || animal.y < 0) {
+          animal.dy = animal.dy * -1;
+        }
+      };
+      
+      var counter = 0;
+      var chaseTail = function(animal) {
+        counter = counter + .1;
+        animal.dx = Math.sin(counter);
+        animal.dy = Math.cos(counter);
+      };
+      
+      var runAway = function(animal) {
+        if (pointer.x > animal.x) {
+          animal.dx = -1;
+        } else {
+          animal.dx= 1;
+        }
+        if (pointer.y > animal.y) {
+          animal.dy = -1
+        } else {
+          animal.dy = 1;
+        }
+        if (animal.x > canvas.width || animal.x < 0) {
+          animal.dx = animal.dx * -1;
+        }
+         if (animal.y > canvas.height || animal.y < 0) {
+          animal.dy = animal.dy * -1;
+        }
+      };
+      
+      var sleep = function(animal) {
+       animal.dx = 0;
+       animal.dy = 0;
+      };
+      
+      var behavior = chaseTail;
+      
+      var animate = function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        update(cat);
+        behavior(cat);
+        drawNeko(cat.x, cat.y);
+        setTimeout(animate, 16);
+      };
+      
+      setTimeout(animate, 16);
+      
+      $canvas.on("click", function(){
+        behavior = wander;
+      });
+      
+      var convertToCanvas = function(x,y) {
+        var offset = $canvas.offset();
+        var newX = x - offset.left;
+        var newY = y - offset.top;
+        return {
+          x: newX,
+          y: newY
+        }
+      };
+      
+      $canvas.on("mousemove", function (e) {
+        var converted = convertToCanvas(e.pageX, e.pageY);
+        pointer.x = converted.x;
+        pointer.y = converted.y;
+        behavior = runAway;
+      })
+      
+    </script>
+    </body>
+</html>
