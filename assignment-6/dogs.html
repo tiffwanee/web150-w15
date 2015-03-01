@@ -23,24 +23,23 @@
 
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script>
+     
         
         $(".filter").on("click", function() {
-        //var $this = $(this);
-        //var filter = $this.attr("data-filter");
+        $("this").attr("data-filter");
         $(".dogs").hide();
         
-        var selector = "." + filter;
-        $(".dogs").filter(selector).show();
+        $(".dogs").filter("." + filter).show();
         });
 
-        var allButton = $(".reset");
-        allButton.on("click", function() {
+        
+        $(".reset").on("click", function() {
         $(".dogs").show();
         });
         
     </script>
     
-    <table class="dogs">
+    <table>
         <tr>
             <th>NAME</th>
             <th>BREED</th>
@@ -48,7 +47,7 @@
             <th>SIZE</th>
             <th>COLOR</th>
         </tr>
-        <tr class="small female">
+        <tr class="dogs small female">
             <td>Sadie</td>
             <td>Papillon</td>
             <td>Female</td>
@@ -56,28 +55,28 @@
             <td>Gray</td>
             
         </tr>
-        <tr>
+        <tr class="dogs">
             <td>Cheddar</td>
             <td>Retriever</td>
             <td>Male</td>
             <td>Medium</td>
             <td>Golden</td>
         </tr>
-         <tr>
+         <tr class="dogs">
             <td>Peabo</td>
             <td>Mastiff</td>
             <td>Male</td>
             <td>Large</td>
             <td>Black</td>
         </tr>
-        <tr class="small brown">
+        <tr class="dogs small brown">
             <td>Sir Claude</td>
             <td>Pug</td>
             <td>Male</td>
             <td>Small</td>
             <td>Brown</td>
         </tr>
-        <tr class="female">
+        <tr class="dogs female">
             <td>Millie</td>
             <td>Poodle</td>
             <td>Female</td>
