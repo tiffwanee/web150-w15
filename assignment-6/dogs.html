@@ -26,9 +26,11 @@
      
         
         $(".filter").on("click", function() {
-        $("this").attr("data-filter");
+        $(this).attr("data-filter");
         $(".dogs").hide();
         
+        var $this = $(this);
+        var filter = $this.attr("data-filter");
         $(".dogs").filter("." + filter).show();
         });
 
